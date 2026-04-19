@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexTicket Studio · Galerie de modèles premium</title>
+  <meta name="description" content="Découvrez nos créations de tickets personnalisés pour événements, festivals, conférences. Qualité professionnelle, design unique.">
+  <!-- Polices Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* -------------------- VARIABLES -------------------- */
+    :root {
+      --primary: #1E3A8A;
+      --primary-light: #3B82F6;
+      --secondary: #F59E0B;
+      --secondary-gradient: linear-gradient(135deg, #F59E0B, #D97706);
+      --dark: #0F172A;
+      --gray: #475569;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 35px rgba(0,0,0,0.15);
+      --border-radius: 16px;
+      --border-radius-sm: 10px;
+      --container-width: 1200px;
+      --transition: all 0.3s ease;
+    }
+
+    /* -------------------- RESET & BASE -------------------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--white);
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section { padding: 80px 0; }
+    .bg-light { background: var(--light-bg); }
+
+    /* -------------------- BOUTONS -------------------- */
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: #E68A00;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* -------------------- HEADER -------------------- */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+      z-index: 100;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    .logo i { color: var(--secondary); font-size: 2rem; }
+    .nav-list {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .nav-link {
+      font-weight: 600;
+      color: var(--dark);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-link:hover { color: var(--primary); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* -------------------- HERO -------------------- */
+    .hero {
+      padding: 100px 0;
+      background: linear-gradient(145deg, #EEF2FF 0%, #FFFFFF 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    .hero-title span {
+      color: var(--secondary);
+      position: relative;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .stat-label {
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    /* -------------------- SECTION HEADER -------------------- */
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* -------------------- FILTRES -------------------- */
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 8px 24px;
+      border-radius: 30px;
+      background: var(--white);
+      border: 1px solid #E2E8F0;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover {
+      background: var(--primary-light);
+      color: white;
+      border-color: var(--primary-light);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* -------------------- GALERIE TICKETS -------------------- */
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+    }
+    .ticket-item {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .ticket-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .ticket-card {
+      position: relative;
+      aspect-ratio: 850 / 480; /* Ratio largeur/hauteur de vos tickets */
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ticket-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ou "contain" selon votre préférence */
+      display: block;
+    }
+    .ticket-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 20px 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+    .ticket-item:hover .ticket-overlay {
+      transform: translateY(0);
+    }
+    .ticket-category {
+      background: var(--secondary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .ticket-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .btn-lightbox {
+      background: white;
+      color: var(--dark);
+      border: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-lightbox:hover {
+      background: var(--primary-light);
+      color: white;
+    }
+
+    /* -------------------- SECTION À PROPOS -------------------- */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+    }
+    .stats-mini {
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .stats-mini div {
+      text-align: center;
+    }
+    .stats-mini span {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .about-image {
+      background: var(--primary-light);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-image img {
+      border-radius: var(--border-radius-sm);
+      width: 100%;
+      height: auto;
+    }
+
+    /* -------------------- SECTION CONTACT -------------------- */
+    .contact-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-content p {
+      margin: 20px 0 30px;
+      color: var(--gray);
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* -------------------- FOOTER -------------------- */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* -------------------- LIGHTBOX -------------------- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 30px; right: 40px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 1001;
+    }
+    .close-lightbox:hover { color: var(--secondary); }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* -------------------- RESPONSIVE -------------------- */
+    @media (max-width: 992px) {
+      .hero-title { font-size: 2.8rem; }
+      .about-container { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 768px) {
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: var(--shadow-md);
+      }
+      .nav-list.active { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-stats { flex-direction: column; gap: 15px; }
+      .section-title { font-size: 2rem; }
+      .ticket-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="header">
+  <div class="container header-container">
+    <a href="#" class="logo">
+      <i class="fas fa-ticket-alt"></i>
+      <span>NexTicket</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-list" id="navList">
+        <li><a href="#accueil" class="nav-link">Accueil</a></li>
+        <li><a href="#galerie" class="nav-link">Galerie</a></li>
+        <li><a href="#a-propos" class="nav-link">À propos</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- ==================== SECTION HERO ==================== -->
+  <section id="accueil" class="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title">
+        Des tickets qui <span>marquent</span> les esprits
+      </h1>
+      <p class="hero-subtitle">
+        NexTicket Studio crée des billets numériques et imprimables sur mesure pour vos événements.
+        Découvrez notre savoir-faire à travers une sélection de réalisations premium.
+      </p>
+      <a href="#galerie" class="btn btn-primary">Voir la galerie <i class="fas fa-arrow-right"></i></a>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">+500</div>
+          <div class="stat-label">Tickets générés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Clients satisfaits</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Personnalisation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION GALERIE ==================== -->
+  <section id="galerie" class="gallery section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nos modèles de tickets</h2>
+        <p class="section-subtitle">Cliquez sur un ticket pour l'agrandir et admirer les détails.</p>
+      </div>
+
+      <!-- Filtres -->
+      <div class="filter-buttons" id="filterContainer">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="premium">Premium</button>
+        <button class="filter-btn" data-filter="vip">VIP</button>
+        <button class="filter-btn" data-filter="pass">Pass</button>
+        <button class="filter-btn" data-filter="vvip">VVIP</button>
+      </div>
+
+      <!-- Grille de tickets (sera remplie dynamiquement) -->
+      <div class="ticket-grid" id="ticketGrid"></div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION À PROPOS ==================== -->
+  <section id="a-propos" class="about section bg-light">
+    <div class="container about-container">
+      <div class="about-text">
+        <h2 class="section-title">Pourquoi NexTicket ?</h2>
+        <p>Fondé par des passionnés de design et de technologie événementielle, NexTicket Studio propose des solutions de billetterie visuelle haut de gamme. Chaque ticket est conçu avec une attention méticuleuse aux détails, alliant esthétique et fonctionnalité.</p>
+        <p>Notre générateur permet une personnalisation poussée : logos partenaires, QR codes dynamiques, statuts variés (Premium, VIP, Pass, etc.). Nous accompagnons les organisateurs d'événements, les salles de spectacle et les festivals dans la création d'une identité visuelle forte dès le premier contact : le billet.</p>
+        <div class="stats-mini">
+          <div><span>+500</span> tickets générés</div>
+          <div><span>50+</span> clients satisfaits</div>
+        </div>
+      </div>
+      <div class="about-image">
+        <!-- Image d'illustration à remplacer -->
+        <img src="images/fonds.png" alt="NexTicket Studio">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION CONTACT ==================== -->
+  <section id="contact" class="contact section">
+    <div class="container contact-content">
+      <h2 class="section-title">Prêt à sublimer votre événement ?</h2>
+      <p>Contactez-nous pour un devis personnalisé ou une démonstration de notre outil de génération.</p>
+      
+      <!-- Nouveau bloc avec Email + WhatsApp -->
+      <div class="contact-buttons">
+        <a href="mailto:oa6044534@gmail.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> Gmail</a>
+        <a href="https://wa.me/86505780?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20tickets." class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      
+    </div>
+  </section>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container footer-content">
+    <p>&copy; 2026 NexTicket Studio. Tous droits réservés.</p>
+    <p>Design premium pour événements d'exception.</p>
+  </div>
+</footer>
+
+<!-- ==================== LIGHTBOX ==================== -->
+<div id="lightbox" class="lightbox">
+  <span class="close-lightbox" id="closeLightbox">&times;</span>
+  <img class="lightbox-content" id="lightboxImg" src="" alt="Aperçu ticket">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  (function() {
+    'use strict';
+
+    // ---------- DONNÉES DES TICKETS (À MODIFIER AVEC VOS PROPRES IMAGES) ----------
+    const ticketsData = [
+      {
+        image: 'images/premium.jpg',  // ← REMPLACEZ PAR LE CHEMIN DE VOTRE IMAGE
+        title: 'Music Festival',
+        category: 'premium',
+        categories: ['premium']
+      },
+      {
+        image: 'images/vip.jpg',    // ← REMPLACEZ PAR LE CHEMIN DE VOTRE IMAGE
+        title: 'Music Festival',
+        category: 'vip',
+        categories: ['vip']
+      },
+      {
+        image: 'images/pass.jpg',     // ← REMPLACEZ PAR LE CHEMIN DE VOTRE IMAGE
+        title: 'Music Festival',
+        category: 'pass',
+        categories: ['pass']
+      },
+      {
+        image: 'images/vvip.jpg',// ← REMPLACEZ PAR LE CHEMIN DE VOTRE IMAGE
+        title: 'Music Festival',
+        category: 'vvip',
+        categories: ['vvip']
+      }
+    ];
+
+    // ---------- CONSTRUCTION DE LA GALERIE ----------
+    const ticketGrid = document.getElementById('ticketGrid');
+    
+    function buildGallery() {
+      ticketGrid.innerHTML = '';
+      ticketsData.forEach(ticket => {
+        const item = document.createElement('div');
+        item.className = 'ticket-item';
+        item.dataset.category = ticket.category;
+        
+        item.innerHTML = `
+          <div class="ticket-card">
+            <img src="${ticket.image}" alt="${ticket.title}" loading="lazy">
+            <div class="ticket-overlay">
+              <span class="ticket-category">${ticket.categories[0].charAt(0).toUpperCase() + ticket.categories[0].slice(1)}</span>
+              <h3 class="ticket-name">${ticket.title}</h3>
+              <button class="btn-lightbox" data-full="${ticket.image}" data-title="${ticket.title}">
+                Voir en grand <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        `;
+        ticketGrid.appendChild(item);
+      });
+    }
+    buildGallery();
+
+    // ---------- MENU MOBILE ----------
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navList = document.getElementById('navList');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        navList.classList.toggle('active');
+      });
+    }
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('active');
+      });
+    });
+
+    // ---------- FILTRES GALERIE ----------
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const ticketItems = () => document.querySelectorAll('.ticket-item');
+
+    function filterTickets(filterValue) {
+      ticketItems().forEach(item => {
+        const categories = item.dataset.category.split(' ');
+        if (filterValue === 'all' || categories.includes(filterValue)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterTickets(filter);
+      });
+    });
+
+    // ---------- LIGHTBOX ----------
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeLightbox = document.getElementById('closeLightbox');
+
+    function openLightbox(imageSrc, title) {
+      lightboxImg.src = imageSrc;
+      lightboxCaption.innerText = title;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightboxFunc() {
+      lightbox.classList.remove('active');
+    }
+
+    // Écouteurs sur les boutons lightbox (délégation car les éléments sont créés dynamiquement)
+    ticketGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn-lightbox');
+      if (btn) {
+        e.stopPropagation();
+        const imgSrc = btn.dataset.full;
+        const title = btn.dataset.title || 'Modèle de ticket';
+        openLightbox(imgSrc, title);
+        return;
+      }
+      
+      // Si on clique sur l'item lui-même (pas sur le bouton), on ouvre aussi la lightbox
+      const item = e.target.closest('.ticket-item');
+      if (item) {
+        const btnLight = item.querySelector('.btn-lightbox');
+        if (btnLight) {
+          openLightbox(btnLight.dataset.full, btnLight.dataset.title);
+        }
+      }
+    });
+
+    closeLightbox.addEventListener('click', closeLightboxFunc);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightboxFunc();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightboxFunc();
+      }
+    });
+
+    // ---------- ANIMATION AU SCROLL (révélation) ----------
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    function observeItems() {
+      document.querySelectorAll('.ticket-item, .about-text, .about-image, .contact-content').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    }
+    observeItems();
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.ticket-item, .about-text, .about-image, .contact-content').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.style.opacity = 1;
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+  })();
+</script>
+
+<!-- Service Worker (optionnel) -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').then(reg => {
+        console.log('Service Worker enregistré');
+      }).catch(err => console.log('SW non enregistré'));
+    });
+  }
+</script>
+</body>
+</html>
